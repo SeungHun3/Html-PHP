@@ -1,0 +1,56 @@
+<!doctype html> <!__ html이라는 것을 선언 __>
+
+
+<html>
+<body class ="cssClass" id = "cssTarget">
+</h1>
+
+<!__input 바인딩 __>
+<input type="button" value="mybutton" onclick="alert('hi')">
+<input type="text" onchange="alert('바뀜')">
+<input type="text" onkeydown="alert('경고')">
+<!__Css 간단하게 __>
+<input type="button" value = "어둡게" onclick="                 // onclick = 바인딩된 자바스크립트 함수 - 자바스크립트 문법상 어떤 대상의 style 뽑는 법
+document.querySelector('body').style.backgroundColor ='black'; // 뒷배경 querySelector('태그네임, .클래스네임, #id네임')
+document.querySelector('#cssTarget').style.color = 'white';    // 앞배경 #cssTarget = body = .cssClass
+"> 
+
+<!__바꾸고 싶은 태그의 style 속성(CSS)으로 디자인 __>
+<h2 style="color:purple">Css</h2>
+<p style="background-color:aqua; color:rgb(23, 214, 39)">Css2</p>
+<div style="font-weight: bold; font-size: large;">Test</div> 
+
+<!__ 태그 적용,클래스 적용,id 적용 // 클래스 적용일때 .classname 사용 , id 적용일때 #idname사용 // 우선순위 = 먼저 태그적용 - 다음 그룹적용(class) - 다음 id 적용 __>
+<style>
+h1{ font-weight: bold; color: blue;}  
+#jsID{color: brown;} 
+.jsClass{font-size: larger;}</style>  <!__밑의 js라는 클래스를 가진 태그에 Css디자인(style 태그)을 적용 __>
+<span class="jsClass">TagClass</span>
+<span id="jsID">TagID</span>
+<h1 class = "js">자바스크립트<br></h1><!__데이터타입 = bool, Null, Undefined, Number, String, Symbol, Object __>
+
+<script>
+
+document.write(1+1); // 2
+document.write("//");
+document.write("1"+"1"); //11
+document.write("//");
+document.write("Hello\nWorld"); // " " /n = 띄우기
+document.write("//");
+document.write('Hello/nWorld'); // ' '  /n = 그대로 출력됨
+document.write("//");
+//string 함수적용
+document.write('Hello World'.length); //string.length라는 length를 사용하기 위한 문법
+document.write("//");
+document.write('Hello     World'.indexOf('W')); // 공백포함 문자순서
+document.write("//");
+document.write('Hello    World'.trim()); // 공백 없애기
+document.write("//");
+var name = 'Seunghun';
+document.write("aelanfoi"+name+"weaf"+name+"lasdyhfladnmf"+name+"anflak"+name+"dhflakdsfa");
+
+
+</script>
+
+</body>
+    </html>

@@ -1,0 +1,85 @@
+<!doctype html> <!__ html이라는 것을 선언 __>
+
+
+<html>
+<body>
+<h1>오브젝트</h1>
+<script>
+    function SetColor(MyColor,self){
+        self.style.color = 'green';
+    }
+    function SetColor(MyColor,self){
+        self.style.color = MyColor;
+    } // 동일 이름의 함수의 경우 마지막 설정한 함수가 덮어쓰게 되어 마지막 선언함수가 실행됨
+
+document.write("출력"); // document라는 파일(객체)에서 write 함수(메소드)에 출력 이라는 인자값을 넣어 실행시킴
+</script>
+<input id = "mybutton1" type="button" value="ChangeRed" onclick="
+SetColor('red',this);
+">
+<input id = "mybutton2" type="button" value="Changeblue" onclick="
+SetColor('blue',this);
+">
+<h1>객체</h1>
+<script>
+    var MyObject = {
+        "first":"One",
+        "second" :"Two",
+        "third":"Three"
+    };
+    document.write("MyObject의 1번키 : " + MyObject.first + "<br>");
+    MyObject.Fourth = "Four";
+    document.write("MyObject의 4번키 : " + MyObject.Fourth+ "<br>");
+    MyObject["  f    i   f    th  "] = "Five";          
+    // Object에서 [] 기호는 "내부의 모든 공백을 포함하여 문자열 처리를 할 수 있게 하는 문법"
+    // 붙어있는 문자열에서는 object.name 이나 object["name"]이나 동일하다
+    document.write("MyObject의 5번키 : " + MyObject["  f    i   f    th  "]+ "<br>");
+    var Mykey = "t  e  n";
+    // Mykey 의 Value는 "t  e  n"
+    // MyObject 의 Value = null , 가지고 있는 키는 first, second, third 
+    // MyObject 의 키 first의 Value 는 "One" , second 의 Value 는 "Two" 이다
+    MyObject.Mykey = "MyValue";
+    // MyObject 에 var Mykey 의 Value를 키로 넣어 "t  e  n" 의 Value는 "MyValue" 로 추가해준 모습
+
+    //선언시 오브젝트형으로 key value 값을 넣는지 Or 단순 Value 값을 넣는지에 따라 자료형 구조가 바뀌는 결과가 된다
+    document.write("MyObject의 키 : var Mykey , Value  : " + MyObject.Mykey+ "<br>");
+     // 오브젝트가 Key, Value를 가지면서도 Function도 가질 수 있다 
+    
+    MyObject.tempFunction = function(){
+        document.write("<h3>tempFunction</h3>");
+    } // 결과적으로 변수는 선언에 따라 var temp.name = function(){} 에서 temp 의 키는 name , value 가 TEXT ( function(){} )로 선언되는 오브젝트형으로 바뀌게 된다
+
+    document.write("<h3>오브젝트 for문 순회</h3>");
+    for(var AllKey in MyObject) // c++문법의 // for(auto it : Array) //와 유사
+    {
+        document.write("Key : " + AllKey + " , Value : " + MyObject[AllKey] + "<br>"); 
+        // 이 구문에서 MyObject.AllKey 의 값은 읽지 못하고 속성에 접근할 수 있는 []로 표기해줘야한다 외우자
+    }
+   
+    // 오브젝트의 키 = key 나열과 FunctionName이 되며 
+    //value는 Key에 대한 Value와 FunctionName에 대한 Value function(){document.write("<h3>tempFunction</h3>");} 인 TEXT로 표기된다
+    
+    //요약하자면 PlayFab의 Cloud Script라는 객체(오브젝트)에서 여러 함수들을 정의해놓은다음
+    // Cloud Script 객체를 꺼내 함수를 사용한다고 보면된다
+
+
+    document.write("<h2>오브젝트 변수로 함수정의 후 사용하기</h2>");
+    var MyFunctionObject = {}; // 객체(오브젝트)로 사용하겠다는 초기화선언
+    MyFunctionObject.FirstFunction = function(){
+        document.write("<h3>첫번째함수</h3>");
+    }
+    MyFunctionObject.SecondFunction = function(){
+        document.write("<h3>두번째함수</h3>");
+    }
+    MyFunctionObject.ThirdFunction = function(){
+        document.write("<h3>세번째함수</h3>");
+    }
+    MyFunctionObject.FirstFunction();
+    
+    document.write("<h2>일반형 변수정의 후 사용하기</h2>");
+    var Age; // 일반형 변수 선언
+    Age = 1;
+    document.write(Age);
+</script>
+</body>
+    </html>

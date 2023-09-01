@@ -1,0 +1,36 @@
+<!doctype html> <!__ html이라는 것을 선언 __>
+
+
+<html>
+<body>
+<h1>함수</h1>
+<h2>함수사용한 버튼</h2>
+<script>
+    function changeButton(self){ // 함수자체에 this를 넣게 되버리면 전역변수로 적용되어 전혀 다른 메모리를 참조해버린다 => 에러
+        if(self.value === 'true'){
+            self.value = 'false';  
+        }
+        else{
+            self.value = 'true';
+        }
+    }
+    function printhelloAndSum(Left, Right){
+        document.write('<div style= "color:blue;">hello');  
+        return Left + Right;
+    }
+
+for(var i = 0; i < 2; i++)
+{
+    document.write('함수실행' + printhelloAndSum(2,3)+ '</div><br>'); // 내부적으로 실행된 함수가 먼저 끝났기에 hello가 먼저 찍힌다
+}
+
+
+</script>
+<input type="button" value="true" onclick="
+changeButton(this);
+">
+<input type="button" value="true" onclick="
+changeButton(this);
+">
+</body>
+    </html>

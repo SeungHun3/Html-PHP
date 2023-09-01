@@ -1,0 +1,50 @@
+<!doctype html> <!__ html이라는 것을 선언 __>
+<html>
+<head>
+    <title> MyTitle</title>
+    <meta charset="utf-8"> <!__ 한글안깨지게 __>
+</head>
+<body>
+<ul>
+    <li>1단락 1번</li>
+    <li>1단락 2번</li>
+</ul>
+<ul>
+    <li>2단락 1번</li>
+    <li>2단락 2번</li>
+</ul>
+
+<strong>"strong <u>Underline</u> text"</strong> <!__ 태그연습 __>
+<h1>Head1</h1>
+<p><a href="https://www.google.com">구글링크</a></p>
+
+자바스크립트
+<p id="jsKey">aaa</p><!__ aaa 를 넣어도 보이지 않음 __>
+<script>
+    // JavaScript 코드
+    var a = 1;
+    document.getElementById("jsKey").innerHTML = a;
+</script>
+
+php돌리기
+<div id="result"></div><!__ div 는 대기설정이 있을때 나타나면 동적으로 블록단위로 표현해줌 __>
+<script>
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            var response = xhr.responseText;
+            document.getElementById("result").innerHTML =  response;
+        }
+    };
+    xhr.open("GET", "aaa.php", true);
+    xhr.send();
+</script>
+
+<br><br><br>줄바꿈<br>하자
+<p>단락표시는 p태그</p>다
+<p><a href="하이퍼텍스트"></a></p><!__ 링크(하이퍼텍스트) __>
+
+<img src = "testPNG.PNG"><!__ 이미지 파일 드래그해서 가져다 놓기 파일명 안맞으면 nullImage표시로 나옴 __>
+
+</body>
+</html><!__ html, head, body 관용적으로 구분짓기 위해 붙이는 태그 __>

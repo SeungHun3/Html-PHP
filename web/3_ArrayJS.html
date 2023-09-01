@@ -1,0 +1,96 @@
+<!doctype html> 
+<html>
+<head>
+    <title> MyTitle</title>
+    <meta charset="utf-8"> <!__ 한글안깨지게 __>
+</head>
+<body>
+비교연산 A===B  => True, False <br>
+html문법                             <br>
+"<" 는 &lt;                       <br>
+">" 는 &gt;                       <br>
+"' '" 은(공백) &amp;                 <br>
+""" 는(큰따옴표 하나)&quot;           <br>
+
+<h2>자바스크립트</h2>
+<input id = "mybutton" type="button" value="true" onclick="
+var selectButton = document.querySelector('#mybutton');
+if(document.querySelector('#mybutton').value === 'true'){
+    document.querySelector('#mybutton').value = 'false';
+}
+else{
+    selectButton.value = 'true';
+}
+">
+<br>=====================================================<br>
+<input id = "mybutton" type="button" value="true" onclick="
+var selectButton = document.querySelector('#mybutton'); // 변수화
+if(selectButton.value === 'true'){
+    selectButton.value = 'false';
+}
+else{
+    selectButton.value = 'true';
+}
+// querySelector = ID가 중복이 된다면 먼저 실행되는 버튼이 바뀐다 => 모두 가져오려면 querySelectorAll(배열구조) 사용하면됨
+">
+<br>========================================================<br>
+<input id = "mybutton" type="button" value="true" onclick=" // this 사용
+if(this.value === 'true'){
+    this.value = 'false';
+}
+else{
+    this.value = 'true';
+}
+">
+
+<br>==========================<스크립트>===========================<br>
+<script>
+document.write("<br>조건문<br>");
+if(1 > 2){
+document.write("true<br>");
+}
+else{
+    document.write("false<br>");
+}
+//배열 = 링크드 리스트 구조로 형성
+var MyArray = ["1번","2번"];
+</script>
+<h2>배열꺼내오기</h2>
+<script>
+document.write("<br>배열출력<br>");
+document.write(MyArray[0]+"<br>");
+document.write(MyArray[1]+"<br>");
+
+document.write("<br>배열길이<br>");
+document.write(MyArray.length+"<br>");
+
+document.write("<br>배열추가<br>");
+MyArray.push('3번');
+document.write(MyArray.length+"<br>");
+
+document.write("<br>반복문으로 출력하면서 링크 걸기<br>");
+for(var i = 0; i < MyArray.length; i++)
+{
+    document.write('<li><a href="https://www.google.com">'+MyArray[i]+'</a><br></li>');
+}
+
+
+var buttonLen = document.querySelectorAll('#mybutton').length; //querySelectorAll = 배열구조
+document.write('<br>querySelectorAll 길이출력<br>'+ buttonLen + '<br>');
+//배열선택해 Array[2] 의 css컬러 바꾸기
+document.querySelectorAll('#mybutton')[2].style.color = 'powderblue'; 
+
+</script>
+
+<br>querySelectorAll 배열로 선택해서 값바꾸기<br>
+<input id = "mybutton" type="button" value="true" onclick="
+var checkButton = document.querySelectorAll('#mybutton');
+if(checkButton[1].value === 'true'){
+    checkButton[1].value = 'false';
+}
+else{
+    checkButton[1].value = 'true';
+}// mybutton아이디를 가진 Array[1]의 인덱스의 값이 바뀐다
+">
+</body>
+</html>
