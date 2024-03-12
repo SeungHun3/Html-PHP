@@ -1,0 +1,38 @@
+const app = express()
+
+app.get('/', function (req, res) {
+  res.send('Hello World')
+})
+
+app.listen(3000)
+
+port = 연결관
+한 서버내에서 다른 포트를 이용해 여러 프로그램을 사용할 수가 있다
+
+app.get('/', function (req, res) {
+  res.send('Hello World')
+})
+
+여기서 
+http 메소드 = get
+라우팅 = '/'
+콜백함수 = function
+
+http 메소드: 요청의 목적 종류를 알리는 수단 
+ex) get, post
+
+라우팅(Routing)
+/      or  /about or   /board
+/만 있는 것을 루트라 부름
+=========================================
+GET / dog => {'sound':'멍멍'}
+GET 방식으로 dog라는 라우팅에 들어가 sound라는 key값으로 멍멍이라는 value가 나오게
+
+app.get('/dog', function (req, res) {
+  res.send('강아지')
+})
+app.get('/cat', function (req, res) {
+  res.send('고양이')
+})
+http://localhost:3000/dog
+http://localhost:3000/cat
