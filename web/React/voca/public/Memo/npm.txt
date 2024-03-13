@@ -25,4 +25,4 @@ and scripts into the app directory. If you do this, you can’t go back!
 
 
 
-// reportWebVitals - 퍼포먼스 관련
+// reportWebVitals - 퍼포먼스 관련코드

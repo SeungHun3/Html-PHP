@@ -1,5 +1,6 @@
 import './App.css';
-
+import Hello from './component/Hello';
+import Welcome from './component/Welcome';
 function App() {
 
   const name = "Seunghun";
@@ -11,15 +12,8 @@ function App() {
 
   return (
     <div className="App">
-      <h1
-        style={{
-          color: "#f0f",
-          backgroundColor: "green",
-        }}
-      >
-        Hello, {name}
-      </h1>
-      <a href={naver.url}>{naver.name}</a>
+      <Hello /><Hello /><Hello />
+      <Welcome />
     </div>
   );
 }
