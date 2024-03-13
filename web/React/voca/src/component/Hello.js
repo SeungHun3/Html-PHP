@@ -1,5 +1,6 @@
 import World from "./World"; // 함수를 만들어 export 시켜 컴포넌트로 사용
-import "./Hello.css"
+import styles from "./Hello.module.css";
+
 export default function Hello() {
     return (
         <div>
@@ -15,7 +16,7 @@ export default function Hello() {
                 </h1>
             <World /><World />
 
-            <div className="box"/>
+            <div className={styles.box}> 스타일</div>
 
         </div>
     );
