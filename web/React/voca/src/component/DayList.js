@@ -1,12 +1,13 @@
+import { Link } from "react-router-dom";
 import dummy from "../db/data.json";
 
 export default function Daylist() {
     return <ul className="list_day">
-        {dummy.days.map(day =>(
+        {dummy.days.map(day => (
             <li key={day.id}>
-                Day {day.day}
+                <Link to={`/day/${day.day}`}>Day {day.day}</Link>
             </li>
         ))}
-        </ul>
+    </ul>
 
 }
