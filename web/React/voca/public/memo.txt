@@ -1,6 +1,14 @@
+
 npm init
 npm install -g create-react-app
 npx create-react-app 폴더이름
+
+=====================================================
+깃받은 이후
+
+cd 폴더이름
+package.json 파일마다 경로 넣고 npm install 
+=====================================================
 
 npm start
 Starts the development server.
@@ -15,7 +23,6 @@ npm run eject
 Removes this tool and copies build dependencies, configuration files
 and scripts into the app directory. If you do this, you can’t go back!
 
-cd 폴더이름
-npm start
+
 
 // reportWebVitals - 퍼포먼스 관련
