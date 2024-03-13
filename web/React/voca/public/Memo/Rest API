@@ -1,0 +1,6 @@
+url주소와 메소드로 CRUD 요청
+
+create : POST
+Read : GET
+Update : PUT
+Delete : DELETE
