@@ -1,5 +1,9 @@
-import { useState } from "react";
-import UserName from "./UserName";
+// 상태(State)로 정의되어 있고 상태가 업데이트되면 
+// React는 자동으로 해당 상태(State)를 사용하는 컴포넌트들을 리렌더링합니다.
+
+
+// 버튼 누를때 name1과 msg1 은 리렌더링하지 않지만 
+// state에 종속된 컴포넌트들 name, msg 는 리렌더링 된다
 
 export default function Hello({age, height}) {
     // props = read only json으로 넘어옴
@@ -30,10 +34,9 @@ export default function Hello({age, height}) {
             <h2>컴포넌트 속성값</h2>
             <h2>{name}({Age}세)(키 {height})</h2>
             <h2>{msg}</h2>
+
             <h2>{name1}</h2>
             <h2>{msg1}</h2>
-
-            <UserName name={name}/>
             <button onClick={changeName}>Change</button>
         </div>
     );
