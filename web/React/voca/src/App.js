@@ -12,8 +12,9 @@ function App() {
 
   return (
     <div className="App">
-      <Hello /><Hello /><Hello />
+      <Hello />
       <Welcome />
+      <div className='box'></div>
     </div>
   );
 }
