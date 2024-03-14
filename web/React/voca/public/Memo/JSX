@@ -14,4 +14,21 @@ return 이후 태그는 하나로 감싼다. ex) <> </>의 빈 태그도 가능
 태그를 열었으면 꼭 닫아야한다.
 
 {} 중괄호를 사용하여 조건부로 요소를 렌더링할 수 있다
-ex) {isShow ? "숨기기" : "보기"}
+
+ex)  {isDone ? 'off' : ''} , {isShow ? "숨기기" : "보기"}
+
+    return (<tr className={isDone ? 'off' : ''}>
+        <td>
+            <input type="checkbox" checked={isDone} onChange={toggleDone} />
+        </td>
+        <td>
+            {word.eng}
+        </td>
+        <td>
+            {isShow && word.kor}
+        </td>
+        <td>
+            <button onClick={toggleShow}>뜻 {isShow ? "숨기기" : "보기"}</button>
+            <button className="btn_del" >삭제</button>
+        </td>
+    </tr>);
