@@ -1,18 +1,25 @@
-import { useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import useFetch from "../hooks/useFetch"
+import useFetch from "../hooks/useFetch.ts"
+import { IDay } from "./DayList";
 
-export default function CreateWord() {
-    const days = useFetch("http://localhost:3001/days");
+export default function CreateWord(): JSX.Element {
+    const days: IDay[] = useFetch("http://localhost:3001/days");
     const history = useNavigate();
     const [isLoading, setIsLoading] = useState(false);
 
-    function onSubmit(e) {
+    function onSubmit(e: React.FormEvent) {
 
         e.preventDefault();
 
-        if (!isLoading) {
+        if (!isLoading && dayRef.current && engRef.current && korRef.current) {
+
             setIsLoading(true);
+
+            const day = dayRef.current.value;
+            const eng = engRef.current.value;
+            const kor = korRef.current.value;
+
             fetch(`http://localhost:3001/words/`,
                 {
                     method: "POST",
@@ -22,24 +29,24 @@ export default function CreateWord() {
                     },
                     body: JSON.stringify(
                         {
-                            day: dayRef.current.value,
-                            eng: korRef.current.value,
-                            kor: engRef.current.value,
+                            day,
+                            eng,
+                            kor,
                             isDone: false,
                         }),
                 }).then(res => {
                     if (res.ok) {
                         alert("생성이 완료되었습니다");
-                        history(`/day/${dayRef.current.value}`);
+                        history(`/day/${day}`);
                         setIsLoading(false);
                     }
                 })
         }
     }
     // 렌더링 되어있는 값으로 데이터 접근
-    const engRef = useRef(null); // dom 에 접근할 수 있게 해줌 스크롤위치 확인, 포커스 주거나 
-    const korRef = useRef(null);
-    const dayRef = useRef(null);
+    const engRef = useRef<HTMLInputElement>(null); // dom 에 접근할 수 있게 해줌 스크롤위치 확인, 포커스 주거나 
+    const korRef = useRef<HTMLInputElement>(null);
+    const dayRef = useRef<HTMLSelectElement>(null);
 
     function log() {
         return "로그";

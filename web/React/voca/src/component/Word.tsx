@@ -1,8 +1,18 @@
-import { useState } from "react";
+import React, { useState } from 'react';
+interface IProps {
+    word: IWord;
+}
 
+export interface IWord {
+    day: string,
+    eng: string,
+    kor: string,
+    isDone: boolean,
+    id: number
+}
 //{ word:w } word를 새로운 변수명으로 할당하겠다
-export default function Word({ word:w }) {
-    const [word,setWord] = useState(w);
+export default function Word({ word: w }: IProps): JSX.Element | null {
+    const [word, setWord] = useState<IWord>(w);
     const [isShow, setIsShow] = useState(false);
     const [isDone, SetIsDone] = useState(word.isDone);
 
@@ -37,14 +47,17 @@ export default function Word({ word:w }) {
                     method: 'DELETE'
                 }
             ).then(res => {
-                if(res.ok){
-                    setWord({id:0}) // word의 key(id)의 value를 0으로 바꿔줌
+                if (res.ok) {
+                    setWord({
+                        ...word,
+                        id: 0,
+                    }) // word의 key(id)의 value를 0으로 바꿔줌
                 }
             })
         }
     }
-    
-    if(word.id ===0){
+
+    if (word.id === 0) {
         return null;
     }
 
