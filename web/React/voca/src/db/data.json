@@ -15,6 +15,10 @@
     {
       "day": 4,
       "id": "4"
+    },
+    {
+      "id": "c509",
+      "day": 5
     }
   ],
   "words": [
@@ -86,6 +90,20 @@
       "day": "1",
       "eng": "집",
       "kor": "house",
+      "isDone": false
+    },
+    {
+      "id": "8a7e",
+      "day": "1",
+      "eng": "상자",
+      "kor": "box",
+      "isDone": false
+    },
+    {
+      "id": "d6e9",
+      "day": "2",
+      "eng": "사자",
+      "kor": "lion",
       "isDone": false
     }
   ]

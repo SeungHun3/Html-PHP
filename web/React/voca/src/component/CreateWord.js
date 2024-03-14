@@ -1,9 +1,10 @@
 import { useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import useFetch from "../hooks/useFetch"
 
 export default function CreateWord() {
     const days = useFetch("http://localhost:3001/days");
-
+    const history = useNavigate();
     function onSubmit(e) {
 
         e.preventDefault();
@@ -25,12 +26,13 @@ export default function CreateWord() {
         }).then(res => {
             if (res.ok) {
                 alert("생성이 완료되었습니다");
+                history(`/day/${dayRef.current.value}`);
             }
         })
     }
     // 렌더링 되어있는 값으로 데이터 접근
     const engRef = useRef(null); // dom 에 접근할 수 있게 해줌 스크롤위치 확인, 포커스 주거나 
-    const korRef = useRef(null);
+    const korRef = useRef(null);  
     const dayRef = useRef(null);
     
     function log() {
