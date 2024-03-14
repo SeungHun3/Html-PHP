@@ -105,6 +105,13 @@
       "eng": "사자",
       "kor": "lion",
       "isDone": false
+    },
+    {
+      "id": "32e4",
+      "day": "1",
+      "eng": "호랑이",
+      "kor": "tiger",
+      "isDone": false
     }
   ]
 }
