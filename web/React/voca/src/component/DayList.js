@@ -1,21 +1,9 @@
 import { Link } from "react-router-dom";
-import dummy from "../db/data.json";
-import { useEffect, useState } from "react";
+import useFetch from "../hooks/useFetch";
 
 export default function Daylist() {
-    const [days, setDays] = useState([]);
-    // 한번만 호출
-    useEffect(() => {
-        fetch("http://localhost:3001/days")
-            .then(res => {
-                return res.json();
-            })
-            .then(data => {
-                setDays(data);
-                console.log(data);
-            })
-    }, []);
 
+    const days = useFetch("http://localhost:3001/days");
 
     return (
         <>
