@@ -1,0 +1,40 @@
+JavaScript Object Notation
+key, value로 이루어진 저장포멧
+
+{
+    "id" : 1,
+    "name" : "John"    
+}
+
+왼쪽 값이 key가 됨
+
+Json은 총 세가지로 구성
+
+1. Key, value 쌍
+2. Json Object : key-value를 여러개 가진 오브젝트
+3. Json Array : obect를 여러개 가진 array
+
+Object
+{ }로 감싸진 부분들이 오브젝트 이다
+{
+    key : value
+    key : 
+    {
+        key : value
+        key : value
+    }
+}
+
+Array [] 로 둘러쌓인 형태
+
+{
+    key :
+    [
+        {
+            key : value
+        },
+        {
+            key : value
+        }
+    ]
+}
