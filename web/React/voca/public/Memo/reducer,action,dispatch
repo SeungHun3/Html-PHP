@@ -1,0 +1,183 @@
+useState를 사용하면 프로젝트 규모가 커지기 시작할 때, state가 너무 많아지거나 부모와 자식 컴포넌트 간 관계가 굉장히 복잡한 경우가 존재한다. 
+
+이런 경우에 부모-자식 관계를 관리해주는 리덕스를 이용하거나 useReducer, contextAPI, dispatch를 사용한다고 한다.
+
+이번 포스팅에서 틱택토를 만드는 과정의 일부를 통해 reducer, action, 그리고 dispatch에 대해 알아보도록 하겠다.
+
+ 
+
+참고로 이번 포스팅은 조현영님의 React 웹게임 기본강좌 https://youtu.be/ccKoutCkbao 를 수강하면서 복습 용으로 작성하는 것이다.
+
+틱택토에 필요한 states를 useState가 아닌 useReducer로
+useState를 사용할 땐 관리하는 state들을 모두 최상단에 써주어야 한다.
+
+아래 TicTacToe 컴포넌트를 보자.
+
+TicTacToe.jsx
+
+const TicTacToe=()=>{
+  const [winner,setWinner]=useState('');
+  const [turn,setTurn]=useState('0');
+  const [tableData,setTableData]=useState([['','',''],['','',''],['','','']]);
+  
+  return(
+    <>
+      <Table onClick={onClickTable} tableData={state.tableData}/>
+    </>
+  );
+};
+지금은 승자가 누구인지 나타내는 winner, 누구의 턴인지 표시해주는 turn, 각 테이블 data를 표시해주는 tableData state 뿐이지만, 규모가 커지면 state가 굉장히 많아져 불편해질 가능성이 존재한다.
+
+ 
+
+이를 조금이나마 해소하기 위해 우리는 useReducer를 이용해보도록 하자.
+
+// 초기 state 모음
+const initialState={
+  winner:'',
+  turn:'O',
+  tableData:[['','',''],['','',''],['','','']],
+}
+
+const TicTacToe=()=>{
+  const [state,dispatch]=useReducer(reducer, initialState);	// state들은 여기서 다룸
+  
+  return(
+    <>
+      <Table onClick={onClickTable} tableData={state.tableData}/>
+    </>
+  );
+};
+state들을 initialState로 묶어주었고, useReducer를 이용해 initialState들을 관리할 수 있게 해주었다.
+이렇게 묶어줄 경우, winner, turn, tableData는 state 객체 안에 들어가게 돼 state.winner, state.turn과 같은 형태로 불러올 수 있다.
+
+state 변경은 dispatch와 action으로
+그럼 useState를 쓰지 않으니 위 state들을 어떻게 set(변경)할지 궁금할 것이다.
+
+여기서 dispatch와 action이 쓰인다.
+
+ 
+
+TicTacToe.jsx
+
+const TicTacToe=()=>{
+  const [state,dispatch]=useReducer(reducer, initialState);
+
+  const onClickTable=useCallback(()=>{
+    dispatch({type:'SET_WINNER', winner:'O'});	// dispatch를 통해 state변경
+  },[]);
+  
+  return(
+    <>
+      <Table onClick={onClickTable} tableData={state.tableData} dispatch={dispatch}/>
+      {/* dispatch는 왜 생겼을까? */}
+    </>
+  );
+};
+
+onClickTable 함수는 틱택토 칸을 선택할 때 턴(O, X)을 표시해주기 위한 함수이다.
+
+이 때 state.turn, state.tableData, 그리고 승자가 결정될 때엔 state.winner가 변경되기 때문에 useState가 필요한 상황인데, 우리는 useReducer를 사용하고 있기 때문에 dispatch를 이용해서 위와 같이 코드를 작성한 것이다.
+
+const onClickTable=useCallback(()=>{
+    dispatch({type:'SET_WINNER', winner:'O'});	// dispatch를 통해 state변경
+  },[]);
+컴포넌트 내의 이벤트 함수이기 때문에 useCallback으로 최적화를 해주었다.
+
+위와 같이 dispatch로 설정해주면 SET_WINNER 타입의 이벤트를 발생시켜 winner를 O로 설정하라는 이벤트가 생긴다.
+
+이 dispatch 중괄호 내부를 action이라 한다. (참고로 편의를 위해 winner: 'O'로 임시로 설정해둔 것이다.)
+
+export const SET_WINNER='SET_WINNER';
+export const CLICK_CELL='CLICK_CELL';
+export const CHANGE_TURN='CHANGE_TURN';
+
+const reducer=(state, action)=>{
+  switch(action.type){
+    case SET_WINNER:
+      return{
+        ...state,
+        winner:action.winner,
+      };
+    case CLICK_CELL:
+      const tableData=[...state.tableData];
+      tableData[action.row]=[...tableData[action.row]];
+      tableData[action.row][action.cell]=state.turn;
+      return{
+        ...state,
+        tableData,
+      };
+    case CHANGE_TURN:
+      return{
+        ...state,
+        turn:state.turn==='O'?'X':'O',
+      }
+  }
+}
+reducer은 이 action 타입들을 관리하는 객체인데, action이 발생할 때마다 reducer 객체에서 action을 실행한다.
+
+만약 onClickTable 함수를 호출했다면, reducer에서 SET_WINNER 타입 action으로 winner를 action.winner로 설정하게 된다.
+
+ 
+
+그리고 이 이벤트들은 다른 컴포넌트에서 발생시킬 때 필요할 수도 있기 때문에 아래와 같이 export로 설정해주자.
+
+그리고 이벤트 타입들을 상수처리를 하여 유지보수를 편하게 할 수 있도록 해주자.
+
+export const SET_WINNER='SET_WINNER';
+export const CLICK_CELL='CLICK_CELL';
+export const CHANGE_TURN='CHANGE_TURN';
+TicTacToe.jsx의 return문 코드를 다시 한 번 보자.
+
+return(
+    <>
+      <Table onClick={onClickTable} tableData={state.tableData} dispatch={dispatch}/>
+      {/* dispatch는 왜 생겼을까? */}
+    </>
+  );
+여기서 dispatch는 왜 전달해주는걸까?
+
+ 
+
+우리는 틱택토를 할 때 테이블 칸을 클릭해서 턴을 표시해주도록 하는 애플리케이션을 만들고 있는 중이다.
+
+따라서 현재 컴포넌트가 아닌 자식컴포넌트 Td에서 이벤트를 발생시킬 것이기 때문에 dispatch를 props로 넘겨주어 이벤트를 발생시킬 수 있도록 해주는 것이다.
+
+ 
+
+Td.jsx
+
+import React, { useCallback } from 'react';
+import { CLICK_CELL,CHANGE_TURN } from './TicTacToe';
+
+const Td=({rowIdx, cellIdx, dispatch, cellData})=>{
+  const onClickId=useCallback(()=>{
+    console.log(rowIdx, cellIdx);
+    // 이미 색칠된 칸이면 진행하지 않고 return시킨다.
+    if(cellData){
+      return;
+    }
+    // 칸을 클릭했을 때 이벤트를 발생시키고 (useState)
+    dispatch({type:CLICK_CELL, row:rowIdx, cell:cellIdx});
+    // 턴을 변경시켜준다. (useState)
+    dispatch({type:CHANGE_TURN});
+  }, [cellData]);	// 변경이 일어나는 부분은 []로 관리
+  return(
+    <td onClick={onClickId}>{cellData}</td>
+  )
+}
+export default Td;
+아까 action 타입들을 상수로 export한 것을 기억하는가?
+
+바로 여기서 쓰이기 때문에 export해준 것이다.
+
+ 
+
+참고로 매번 이렇게 dispatch를 자식컴포넌트에게 넘겨주는 것은 불편하기 때문에 이 기능을 도와주는 라이브러리가 존재한다고 한다.
+
+그리고 규모가 좀 더 커지면 아예 redux를 사용하는 것이 훨씬 편하다고 한다.
+
+정리
+state들이 너무 많아지면? reducer로 state를 관리하자.
+
+useState기능은 dispatch를 통해 action으로 reducer에게 대신해주자.
