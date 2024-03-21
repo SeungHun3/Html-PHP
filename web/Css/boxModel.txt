@@ -19,3 +19,13 @@ box-sizing
 content-box : 기본값. 너비와 높이가 콘텐츠 영역만을 포함한다.
 border-box : 너비와 높이가 안쪽 여백과 테두리까지 포함한다.
 => 너비와 높이가 같더라도 box-sizing 속성값에 따라 크리가 달라질 수 있다.
+
+background
+
+콘텐츠의 배경을 정의
+단축속성으로써 색상, 이미지, 반복 등 다양한 하위속성 정의할 수 있다
+background-color: 배경 색상,
+background-image: 배경 이미지, 
+background-position: 배경이미지 초기위치, 
+background-size: 배경이미지 크기, 
+background-repeat: 배경이미지 반복방법
