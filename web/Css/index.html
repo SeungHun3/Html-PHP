@@ -4,14 +4,23 @@
         <meta charset="UTF-8">
         <title>HTML 문서</title>
         <style>
-            #myid{color: orange;}
-            .text{color: green;}
-            h1{color: red;}p{color: blue;}
+            *{font-family:굴림, serif,monospace;}/*굴림체로 적용 but 굴림체가 없다면 serif가 없다면 monospace글꼴체를 사용하겠다*/
+            /* 
+            default size: 
+            h1 = 32px , p 16px
+            */
+            html{font-size: 18px;}
+            h1{font-size: 2rem;}
+            p{font-size: 100px;}
+            span{font-size: 0.5em;}
+
+            #right{text-align: right;color: blueviolet;}
+            
         </style>
     </head>
     <body>
-        <h1 class="text"> 제목</h1>
-        <p id="myid">문단1</p>
-        <p class="text">문단2</p>
+        <h1> 제목</h1>
+        <p>문단1  <span>SPAN</span></p>
+        <p id="right">TEXT RIGHT</p>
     </body>
 </html>

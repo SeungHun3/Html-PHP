@@ -1,0 +1,7 @@
+px : 모니터 화소하나 크기에 대응하는 절대크기
+rem : <html>태그(root)의 font-size에 대응하는 상대적인 크기
+em : 부모태그(상위태그)에 대응하는 상대적인 크기에
+
+span{font-size: 16px;} 16픽셀 크기 고정
+span{font-size: 2rem;} <html> font-size크기의 2배
+span{font-size: 1.5em;} 상위태그 크기의 1.5배
