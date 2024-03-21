@@ -11,3 +11,11 @@ box model
 하위속성 정의하기
 padding-left, padding-right, padding-top, padding-bottom
 margin-left, margin-right, margin-top, margin-bottom
+
+
+box-sizing
+너비와 높이를 계산하는 방법을 지정한다
+
+content-box : 기본값. 너비와 높이가 콘텐츠 영역만을 포함한다.
+border-box : 너비와 높이가 안쪽 여백과 테두리까지 포함한다.
+=> 너비와 높이가 같더라도 box-sizing 속성값에 따라 크리가 달라질 수 있다.
