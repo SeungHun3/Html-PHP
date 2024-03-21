@@ -1,32 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>HTML 문서</title>
-        <style>
-            *{font-size: 50px;}
-            div{border: 1px solid red;}
-            span{border: 1px dashed blue;}
-            #block{display: block;}
-            #inline{display: inline;}
-            #none{display: none;}
-        </style>
-    </head>
-    <body>
-        <div>
-            블록
-            <span>
-                인라인
-            </span>
-        </div>
-        <span>
-            인라인
-        </span>
-        <br><br>
-        <div id="inline">블록 => 인라인</div>
-        <span id="block">인라인 => 블록</span>
 
-        <div id="none">NONE</div>
-        <div>블록</div>
-    </body>
+<head>
+    <meta charset="UTF-8">
+    <title>HTML 문서</title>
+    <style>
+        div {
+            border: 3px solid red;
+            padding: 10px;
+            margin: 20px;
+            width: 90px;
+            height: 35px;
+        }
+        span{
+            width: 100px;
+            height: 100px;
+        }
+        #under{
+            width: 100px;
+            height: 100px;
+            border: 3px solid red;
+
+            padding-top: 10px;
+            padding-right: 20px;
+            padding-bottom: 30px;
+            padding-left: 40px;
+            
+            margin: 10px; /* 상하좌우: 10px */
+            margin: 10px, 20px; /* 상하: 10px, 좌우 20px */
+            margin: 10px 20px 30px; /* 상: 10px, 좌우: 20px, 하: 30px*/
+            margin: 10px 20px 30px 40px; /* 상: 10px, 우: 20px, 하: 30px 좌: 40px*/
+
+            margin-top: 40px;
+            margin-right: 30px;
+            margin-bottom: 20px;
+            margin-left: 10px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        콘텐츠
+    </div>
+    <span>Div Margin확인</span>
+    <span>인라인: width,height X</span>
+
+    <div id="under">하위 속성</div>
+</body>
+
 </html>
