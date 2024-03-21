@@ -3,24 +3,15 @@
     <head>
         <meta charset="UTF-8">
         <title>HTML 문서</title>
-
         <style>
-            /* 적용하고 싶은 스타일 코드 */
-            p{
-                color: red;
-                font-size: 32px;
-            }
+            #myid{color: orange;}
+            .text{color: green;}
+            h1{color: red;}p{color: blue;}
         </style>
-        <link href="/style.css" rel="stylesheet">
-
     </head>
     <body>
-        <p style="color: blue;">
-            인라인 스타일
-        </p>
-
-        <p>
-            스타일태그 스타일
-        </p>
+        <h1 class="text"> 제목</h1>
+        <p id="myid">문단1</p>
+        <p class="text">문단2</p>
     </body>
 </html>
