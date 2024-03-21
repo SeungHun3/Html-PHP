@@ -5,57 +5,40 @@
     <meta charset="UTF-8">
     <title>HTML 문서</title>
     <style>
-        #basic {
-            /*default: content-box*/
+        #a {
+            width: 100px;
+            height: 50px;
+            background-color: orange;
+            float: right;
+        }
+
+        #b {
             width: 100px;
             height: 100px;
-
-            border: 5px solid tomato;
-            padding: 10px 20px;
-            /*
-            총 영역크기: width 150px height 130px
-            */
+            background-color: blue;
+            float: left;
         }
-        #borderbox {
-            box-sizing: border-box;
-            width: 100px;
-            height: 100px;
-
-            border: 5px solid tomato;
-            padding: 10px 20px;
-            /*
-            총 영역크기: width 100px height 100px
-            */
+        #clear{
+            clear: both;
         }
-        #background {
-            box-sizing: border-box;
-            width: 500px;
-            height: 500px;
-            border: 5px solid blue;
-
-            background-color: red;
-            background-image: url(./cat.jpg);
-            background-repeat: no-repeat;
-            background-position: center; /*default left top*/
-            background-size: contain; /*본 이미지 크기의 가로세율 비율따라 최대크기 맞춤*/
-            /*contain = 무조건 size에 가득차게 맞춤*/
-
-            /*backgound의 경우 background: center,no-repeat,contain과 같이 순서 상관없이 적어도 무방,url(./cat.jpg) */
-        }
-
     </style>
 </head>
 
 <body>
-    <div id="basic">
-        콘텐츠
-    </div>
-    <div id="borderbox">
-        콘텐츠
-    </div>
-    <div id="background">
-        BACKGROUND
-    </div>
+    <div id="a"></div>
+    <div id="b"></div>
+    <p id="clear">클      리      어 </p>
+    <div id="a"></div>
+    <div id="b"></div>
+    <p>
+        ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
+        ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
+        ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
+        ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
+        ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
+        ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
+        ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
+    </p>
 </body>
 
 </html>
