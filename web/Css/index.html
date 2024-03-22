@@ -5,39 +5,67 @@
     <meta charset="UTF-8">
     <title>HTML 문서</title>
     <style>
-        #relative {
+        .fixed {
             width: 200px;
             height: 200px;
-            background-color: red;
-            position: relative;
+            background: red;
+            position: fixed;
             top: 100px;
-            left: 200px;
-            /* top에서 부터 100 떨어뜨리고 left로 부터 200px 떨어뜨린다*/
+            left: 30px;
         }
 
-        #absolute {
-            width: 150px;
-            height: 150px;
-            background-color: blue;
-            position: absolute;
+        .sticky {
+            width: 100px;
+            height: 100px;
+            background: blue;
+            position: sticky;
             top: 50px;
-            left: 30px;
-            /*부모의 포지션에서 top 50, left 30 위치 적용시킨다*/
+            bottom: 0px;
+            left: 100px;
         }
     </style>
 </head>
 
 <body>
-    <div id="relative"></div>
-    <p>ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ</p>
-
-    <div id="relative">
-        <div id="absolute">
-            <p>ㅇㅇㅇㅇㅇㅇㅇ</p>
-        </div>
-        
-        <p>ㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔ</p>
-        <p>ㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔㅔ</p>
+    <div>
+        첫번째<br />첫번째<br />첫번째<br />첫번째<br />
+        첫번째<br />첫번째<br />첫번째<br />첫번째<br />
+        첫번째<br />첫번째<br />첫번째<br />첫번째<br />
+        첫번째<br />첫번째<br />첫번째<br />첫번째<br />
+        첫번째<br />첫번째<br />첫번째<br />첫번째<br />
+        첫번째<br />첫번째<br />첫번째<br />첫번째<br />
+        첫번째<br />첫번째<br />첫번째<br />첫번째<br />
+        첫번째<br />첫번째<br />첫번째<br />첫번째<br />
+        첫번째<br />첫번째<br />첫번째<br />첫번째<br />
+        첫번째<br />첫번째<br />첫번째<br />첫번째<br />
+        첫번째<br />첫번째<br />첫번째<br />첫번째<br />
+        첫번째<br />첫번째<br />첫번째<br />첫번째<br />
+        첫번째<br />첫번째<br />첫번째<br />첫번째<br />
+        첫번째<br />첫번째<br />첫번째<br />첫번째<br />
+        첫번째<br />첫번째<br />첫번째<br />첫번째<br />
+        첫번째<br />첫번째<br />첫번째<br />첫번째<br />
+        첫번째<br />첫번째<br />첫번째<br />첫번째<br />
+    </div>
+    <div class="fixed"> </div>
+    <div class="sticky"> </div>
+    <div>
+        두번째<br />두번째<br />두번째<br />두번째<br />
+        두번째<br />두번째<br />두번째<br />두번째<br />
+        두번째<br />두번째<br />두번째<br />두번째<br />
+        두번째<br />두번째<br />두번째<br />두번째<br />
+        두번째<br />두번째<br />두번째<br />두번째<br />
+        두번째<br />두번째<br />두번째<br />두번째<br />
+        두번째<br />두번째<br />두번째<br />두번째<br />
+        두번째<br />두번째<br />두번째<br />두번째<br />
+        두번째<br />두번째<br />두번째<br />두번째<br />
+        두번째<br />두번째<br />두번째<br />두번째<br />
+        두번째<br />두번째<br />두번째<br />두번째<br />
+        두번째<br />두번째<br />두번째<br />두번째<br />
+        두번째<br />두번째<br />두번째<br />두번째<br />
+        두번째<br />두번째<br />두번째<br />두번째<br />
+        두번째<br />두번째<br />두번째<br />두번째<br />
+        두번째<br />두번째<br />두번째<br />두번째<br />
+        두번째<br />두번째<br />두번째<br />두번째<br />
     </div>
 </body>
 
