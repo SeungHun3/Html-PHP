@@ -5,52 +5,31 @@
     <meta charset="UTF-8">
     <title>HTML 문서</title>
     <style>
-        h1:hover {
-            color: red;
-        }
-        h1:active{
-            background-color: blue;
-        }
-        h1:focus{
-            border: solid blueviolet;
-        }
-        [type="button"] {
-            width: 100px;
-            height: 30px;
-            background-color: gray;
-            color: white;
-            border: none; border-radius: 8px;
-        }
-        [type="button"]:hover{
-            background-color: blue;
-        }
-        [type="button"]:active{
-            background-color: red;
-        }
-        [type="button"]:focus{
-            border: solid blueviolet;
-        }
+        /* nth-child: 형제 중 특정 요소에 대해서만 스타일 지정*/
 
-        [type="text"]:hover{
-            background-color: blue;
+        body{
+            display: flex;
+            justify-content: space-between;
         }
-        [type="text"]:active{
+        .box{
+            width: 50px; height: 50px;
+            background-color: blue; color: white;
+        }
+        .box:nth-child(3){
             background-color: red;
         }
-        [type="text"]:focus{
-            border: 10px solid blueviolet;
-        }
-        [type="text"]:disabled{
-            font-size: 50px;
+        .box:nth-child(2n){
+            background-color: blueviolet;
         }
     </style>
 </head>
 
 <body>
-    <h1>Press</h1>
-    <input type="button" value="버튼">
-    <input type="text" id= "toggle" placeholder="입력해보세요">
-    <script>document.getElementById('toggle').disabled = false;  </script>
+    <div class="box">1번</div>
+    <div class="box">2번</div>
+    <div class="box">3번</div>
+    <div class="box">4번</div>
+    <div class="box">5번</div>
 </body>
 
 </html>
