@@ -5,44 +5,52 @@
     <meta charset="UTF-8">
     <title>HTML 문서</title>
     <style>
-        body h1 {
-            color: aqua;
-            font-family: 굴림;
-        }
-
-        body p {
-            font-size: 20px;
-            font-family: serif;
-        }
-
-        body > span {
-            /* body 하위요소에 span 태그가 없어 적용되지 않음 */
-            color: blue;
-        }
-
-        p >.unique {
-            font-size: 40px;
+        h1:hover {
             color: red;
         }
-
-        h1 ~ p {/* h1을 뒤따르는 모든 형제중에서 p태그 선택*/
-            background-color:cadetblue;
+        h1:active{
+            background-color: blue;
         }
-        
-        h1 + p {/* h1을 바로 뒤따르는 형제중 p가 있다면 선택*/
-            background-color:brown;
+        h1:focus{
+            border: solid blueviolet;
+        }
+        [type="button"] {
+            width: 100px;
+            height: 30px;
+            background-color: gray;
+            color: white;
+            border: none; border-radius: 8px;
+        }
+        [type="button"]:hover{
+            background-color: blue;
+        }
+        [type="button"]:active{
+            background-color: red;
+        }
+        [type="button"]:focus{
+            border: solid blueviolet;
+        }
+
+        [type="text"]:hover{
+            background-color: blue;
+        }
+        [type="text"]:active{
+            background-color: red;
+        }
+        [type="text"]:focus{
+            border: 10px solid blueviolet;
+        }
+        [type="text"]:disabled{
+            font-size: 50px;
         }
     </style>
 </head>
 
 <body>
-    <p>class="temp" 0번 문단입니다</p>
-    <h1> 선택자</h1>
-    <p>1번 문단입니다</p>
-    <p>2번 문단입니다 </p>
-    <p>3번 문단 <span> &lt; SPAN &gt; </span> 입니다</p>
-    <p>4번 문단입니다 </p>
-    <p>5번 문단 <span class="unique"> &lt; class="unique" SPAN &gt;</span> 입니다 </p>
+    <h1>Press</h1>
+    <input type="button" value="버튼">
+    <input type="text" id= "toggle" placeholder="입력해보세요">
+    <script>document.getElementById('toggle').disabled = false;  </script>
 </body>
 
 </html>
