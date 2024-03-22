@@ -5,67 +5,53 @@
     <meta charset="UTF-8">
     <title>HTML 문서</title>
     <style>
-        .fixed {
-            width: 200px;
-            height: 200px;
-            background: red;
-            position: fixed;
-            top: 100px;
-            left: 30px;
+        .item{
+            width: 80px; height: 80px;
+            background-color: orange;
         }
-
-        .sticky {
-            width: 100px;
-            height: 100px;
-            background: blue;
-            position: sticky;
-            top: 50px;
-            bottom: 0px;
-            left: 100px;
+        #row{
+            display: flex;
+            flex-direction: row;
+        }        
+        #row-reverse{
+            display: flex;
+            flex-direction: row-reverse;
+        }
+        #column{
+            display: flex;
+            flex-direction: column;
+        }
+        #column-reverse{
+            display: flex;
+            flex-direction: column-reverse;
         }
     </style>
 </head>
 
 <body>
-    <div>
-        첫번째<br />첫번째<br />첫번째<br />첫번째<br />
-        첫번째<br />첫번째<br />첫번째<br />첫번째<br />
-        첫번째<br />첫번째<br />첫번째<br />첫번째<br />
-        첫번째<br />첫번째<br />첫번째<br />첫번째<br />
-        첫번째<br />첫번째<br />첫번째<br />첫번째<br />
-        첫번째<br />첫번째<br />첫번째<br />첫번째<br />
-        첫번째<br />첫번째<br />첫번째<br />첫번째<br />
-        첫번째<br />첫번째<br />첫번째<br />첫번째<br />
-        첫번째<br />첫번째<br />첫번째<br />첫번째<br />
-        첫번째<br />첫번째<br />첫번째<br />첫번째<br />
-        첫번째<br />첫번째<br />첫번째<br />첫번째<br />
-        첫번째<br />첫번째<br />첫번째<br />첫번째<br />
-        첫번째<br />첫번째<br />첫번째<br />첫번째<br />
-        첫번째<br />첫번째<br />첫번째<br />첫번째<br />
-        첫번째<br />첫번째<br />첫번째<br />첫번째<br />
-        첫번째<br />첫번째<br />첫번째<br />첫번째<br />
-        첫번째<br />첫번째<br />첫번째<br />첫번째<br />
+    <div id="row">
+        row
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
     </div>
-    <div class="fixed"> </div>
-    <div class="sticky"> </div>
-    <div>
-        두번째<br />두번째<br />두번째<br />두번째<br />
-        두번째<br />두번째<br />두번째<br />두번째<br />
-        두번째<br />두번째<br />두번째<br />두번째<br />
-        두번째<br />두번째<br />두번째<br />두번째<br />
-        두번째<br />두번째<br />두번째<br />두번째<br />
-        두번째<br />두번째<br />두번째<br />두번째<br />
-        두번째<br />두번째<br />두번째<br />두번째<br />
-        두번째<br />두번째<br />두번째<br />두번째<br />
-        두번째<br />두번째<br />두번째<br />두번째<br />
-        두번째<br />두번째<br />두번째<br />두번째<br />
-        두번째<br />두번째<br />두번째<br />두번째<br />
-        두번째<br />두번째<br />두번째<br />두번째<br />
-        두번째<br />두번째<br />두번째<br />두번째<br />
-        두번째<br />두번째<br />두번째<br />두번째<br />
-        두번째<br />두번째<br />두번째<br />두번째<br />
-        두번째<br />두번째<br />두번째<br />두번째<br />
-        두번째<br />두번째<br />두번째<br />두번째<br />
+    <div id="row-reverse">
+        row-reverse
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+    </div>
+    <div id="column">
+        column
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+    </div>
+    <div id="column-reverse">
+        column-reverse
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
     </div>
 </body>
 
