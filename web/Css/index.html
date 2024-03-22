@@ -5,53 +5,34 @@
     <meta charset="UTF-8">
     <title>HTML 문서</title>
     <style>
+        .container {
+            display: flex;
+            width: 300px; height: 300px;
+            border: 2px solid black;
+            justify-content: space-between;
+            align-items:center;
+            /*
+            flex-wrap: wrap;
+            */
+        }
         .item{
-            width: 80px; height: 80px;
-            background-color: orange;
+            width: 120px; height: 60px;
+            background-color: teal;
+            border: solid red;
         }
-        #row{
-            display: flex;
-            flex-direction: row;
-        }        
-        #row-reverse{
-            display: flex;
-            flex-direction: row-reverse;
+        .self{
+            align-self: flex-start;
         }
-        #column{
-            display: flex;
-            flex-direction: column;
-        }
-        #column-reverse{
-            display: flex;
-            flex-direction: column-reverse;
-        }
+
     </style>
 </head>
 
 <body>
-    <div id="row">
-        row
+    <div class="container">
         <div class="item">1</div>
         <div class="item">2</div>
-        <div class="item">3</div>
-    </div>
-    <div id="row-reverse">
-        row-reverse
-        <div class="item">1</div>
-        <div class="item">2</div>
-        <div class="item">3</div>
-    </div>
-    <div id="column">
-        column
-        <div class="item">1</div>
-        <div class="item">2</div>
-        <div class="item">3</div>
-    </div>
-    <div id="column-reverse">
-        column-reverse
-        <div class="item">1</div>
-        <div class="item">2</div>
-        <div class="item">3</div>
+        <div class="item self">3</div>
+        <div class="item">4</div>
     </div>
 </body>
 
