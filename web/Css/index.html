@@ -5,31 +5,64 @@
     <meta charset="UTF-8">
     <title>HTML 문서</title>
     <style>
-        /* nth-child: 형제 중 특정 요소에 대해서만 스타일 지정*/
+        p::first-letter {
+            font-size: 50px;
+        }
 
-        body{
-            display: flex;
-            justify-content: space-between;
+        p::first-line {
+            text-decoration: underline;
         }
-        .box{
-            width: 50px; height: 50px;
-            background-color: blue; color: white;
+
+        li::marker {
+            color: teal;
+            font-size: 50px;
         }
-        .box:nth-child(3){
-            background-color: red;
+        input::placeholder{
+            font-size: 24px;
+            color: black;
         }
-        .box:nth-child(2n){
-            background-color: blueviolet;
+        #before::before{
+            content: "앞에 추가한 텍스트 //";
+            background-color: gray;
+        }
+        #after::after{
+            content: "// 뒤에 추가한 텍스트";
+            background-color: gray;
         }
     </style>
 </head>
 
 <body>
-    <div class="box">1번</div>
-    <div class="box">2번</div>
-    <div class="box">3번</div>
-    <div class="box">4번</div>
-    <div class="box">5번</div>
+    <h1>서시</h1>
+    <p>
+        죽는 날까지 하늘을 우러러
+        한 점 부끄럼이 없기를,
+        잎새에 이는 바람에도
+        나는 괴로워했다.<br />
+        별을 노래하는 마음으로
+        모든 죽어가는 것을 사랑해야지
+        그리고 나한테 주어진 길을
+        걸어가야겠다.
+    </p>
+
+
+    <h1>Marker</h1>
+    <ul>
+        <li>강아지</li>
+        <li>고양이</li>
+        <li>다람쥐</li>
+        <li>햄스터</li>
+    </ul>
+
+    <h1>PlaceHolder</h1>
+<input type="text" placeholder="입력하세요">
+
+<h1>Before</h1>
+<p id="before">BEFORE</p>
+
+<h1>After</h1>
+<p id="after">AFTER</p>
+
 </body>
 
 </html>
