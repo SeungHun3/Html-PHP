@@ -5,35 +5,44 @@
     <meta charset="UTF-8">
     <title>HTML 문서</title>
     <style>
-        [class="text"] {
+        body h1 {
+            color: aqua;
+            font-family: 굴림;
+        }
+
+        body p {
+            font-size: 20px;
+            font-family: serif;
+        }
+
+        body > span {
+            /* body 하위요소에 span 태그가 없어 적용되지 않음 */
             color: blue;
         }
 
-        [id] {
-            color: brown;
-        }
-
-        [class*="m"] {
+        p >.unique {
+            font-size: 40px;
             color: red;
         }
-        [class$="2"] {
-            color: rgb(230, 0, 255);
+
+        h1 ~ p {/* h1을 뒤따르는 모든 형제중에서 p태그 선택*/
+            background-color:cadetblue;
         }
-        [class^="1"] {
-            color: rgb(0, 255, 47);
+        
+        h1 + p {/* h1을 바로 뒤따르는 형제중 p가 있다면 선택*/
+            background-color:brown;
         }
     </style>
 </head>
 
 <body>
+    <p>class="temp" 0번 문단입니다</p>
     <h1> 선택자</h1>
-    <p class="temp">class="temp" 1번 문단입니다</p>
-    <p class="text">class="text" 2번 문단입니다 </p>
-    <p id="unique">id="unique" 3번 문단입니다 </p>
-    <p class="text">class="text" 4번 문단입니다 </p>
-    <p class="text">class="text" 5번 문단 <span class="text2"> &lt; class="text2" SPAN &gt; </span> 입니다</p>
-    <p class="text2">class="text2" 6번 문단입니다 </p>
-    <p class="1text">class="1text" 7번 문단입니다 </p>
+    <p>1번 문단입니다</p>
+    <p>2번 문단입니다 </p>
+    <p>3번 문단 <span> &lt; SPAN &gt; </span> 입니다</p>
+    <p>4번 문단입니다 </p>
+    <p>5번 문단 <span class="unique"> &lt; class="unique" SPAN &gt;</span> 입니다 </p>
 </body>
 
 </html>
