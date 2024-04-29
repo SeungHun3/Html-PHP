@@ -1,0 +1,27 @@
+createElement( )
+원하는 태그를 생성한다
+사용법은 아래와 같다
+ let 변수이름 = document.createElement('태그');
+setAttribute( )
+createElement( ) 를 이용해 새롭게 만든 태그에 속성과 값을 부여한다
+사용법은 아래와 같다
+생성한태그변수.setAttribute('속성' , '값');
+appendChild( )
+속성까지 부여해준 태그를 지정된 태그의 자식 태그로 넣는다
+사용법은 아래와 같다
+부모태그.appendChild(생성한태그변수);
+
+example
+
+        let cocosContainer = document.getElementById('Cocos3dGameContainer');
+        let container   = document.getElementById('GameDiv');
+        let videoContainer = document.createElement("div");
+        let videoPlayer = document.createElement("video");
+
+        cocosContainer.style.position = 'absolute';
+
+        videoContainer.id = 'videoContainer';  
+        videoContainer.style.position = 'absolute';
+        videoContainer.style.zIndex = '2';
+        videoPlayer.style.width = `100%`;
+        videoPlayer.style.height = `100%`;
